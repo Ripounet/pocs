@@ -1,3 +1,10 @@
+//
+// Illustration of the behavior of appengine/search with stemming in queries : 
+// stemming seems to be ignored by "goapp serve" on localhost, 
+// but works well in prod at http://gae-go-stemming.appspot.com/ .
+//
+// Official doc is https://cloud.google.com/appengine/docs/go/search/query_strings#Go_Stemming
+//
 package stemming
 
 import (
@@ -58,7 +65,7 @@ func handle(w http.ResponseWriter, r *http.Request) {
 }
 
 // This sample struct contains only 1 string field Bulk.
-// Bulk will will automatically tokenized, etc.
+// Bulk will be automatically tokenized, etc.
 type searchableDoc struct {
 	Bulk string
 }
