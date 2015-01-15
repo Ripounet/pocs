@@ -15,7 +15,7 @@ func init() {
 func handle(w http.ResponseWriter, r *http.Request) {
 	c := appengine.NewContext(r)
 	w.Header().Set("Content-Type", "text/plain; charset=utf-8")
-	
+
 	//
 	// Put some items in the index.
 	//
@@ -25,10 +25,10 @@ func handle(w http.ResponseWriter, r *http.Request) {
 		"I like dogs.",
 		"I have a cat.",
 		"I like cats.",
-	}{
+	} {
 		docId := strconv.Itoa(i)
 		err := writeToIndex(c, docId, sentence)
-		if err!=nil {
+		if err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}
@@ -47,9 +47,9 @@ func handle(w http.ResponseWriter, r *http.Request) {
 		"~dog",
 		"cat",
 		"~cat",
-	}{
+	} {
 		hits, err := searchInIndex(c, queryValue)
-		if err!=nil {
+		if err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}
