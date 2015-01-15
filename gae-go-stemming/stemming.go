@@ -60,7 +60,7 @@ func handle(w http.ResponseWriter, r *http.Request) {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}
-		fmt.Fprintf(w, "%v => %v \n", queryValue, hits)
+		fmt.Fprintf(w, "%q => %q \n", queryValue, hits)
 	}
 }
 
